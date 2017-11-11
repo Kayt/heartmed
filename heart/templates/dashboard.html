@@ -1,0 +1,133 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Admin Dashboard</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='admin/css/normalize.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='admin/css/main.css')}}">
+
+    <script src="{{ url_for('static', filename='admin/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js') }}"></script>
+    <style>
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+        
+        td,
+        th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #dddddd;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header-container">
+        <header class="wrapper clearfix">
+            <a href="{{ url_for('dashboard') }}">
+                <h1 class="title">Admin Portal</h1>
+            </a>
+            <nav>
+                <ul>
+                    
+                    <li><a href="{{ url_for('viewFlagged')}}">Assign Doctors</a></li>
+                    <li><a href="{{ url_for('addUser')}}">Add Doctor</a></li>
+                    <li><a href="{{ url_for('logout') }}">Sign Out</a></li>
+                </ul>
+            </nav>
+        </header>
+    </div>
+
+    <div class="main-container">
+        <div class="main wrapper clearfix">
+
+            <article class=flashes>
+                {% with messages = get_flashed_messages() %} {% if messages %}
+                <ul>
+                    {% for message in messages %}
+                    <li>{{ message }}</li>
+                    {% endfor %}
+                </ul>
+                {% endif %} {% endwith %}
+            </article>
+
+            <article>
+                <thead>
+                    All Patients
+                </thead>
+                <table>
+                    <tr>
+                        <th>Username </th>
+                        <th>email</th>
+                        <th>Role</th>
+                        <th></th>
+                    </tr>
+                    {% for user in users %}
+                    <tr>
+                        <td>{{ user.username }}</td>
+                        <td>{{ user.email }}</td>
+                        <td>{{ user.role }}</td>
+                        <td><a href="{{ url_for('deleteUser', id=user.id) }}">Delete Patient</a></td>
+                    </tr>
+                    {% endfor %}
+                </table>
+            </article>
+            <br/>
+            <br>
+
+            <article>
+                <table>
+                    <thead>
+                        All Doctors
+                    </thead>
+                    <tr>
+                        <th>Username </th>
+                        <th>email</th>
+                        <th></th>
+                    </tr>
+                    {% for doc in doctors %}
+                    <tr>
+                        <td>{{ doc.username }}</td>
+                        <td>{{ doc.email }}</td>
+                        <td><a href="{{ url_for('deleteDoc', id=doc.id) }}">Delete Doctor</a></td>
+                    </tr>
+                    {% endfor %}
+                </table>
+            </article>
+
+            <aside>
+                <h3>aside</h3>
+                <li><a href="{{ url_for('viewPatientFeedback')}}">Patients Feedback</a></li>
+            </aside>
+
+        </div>
+        <!-- #main -->
+    </div>
+    <!-- #main-container -->
+
+    <div class="footer-container">
+        <footer class="wrapper">
+            <h3>Heart Med @ Zoro 2017</h3>
+        </footer>
+    </div>
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script>
+        window.jQuery || document.write('<script src="{{ url_for("static",filename="admin/>js/vendor/jquery-1.11.2.min.js") }}"><\/script>')
+    </script>
+
+    <script src="{{ url_for('static', filename='admin/js/main.js') }}"></script>
+</body>
+
+</html>

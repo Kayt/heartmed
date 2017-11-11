@@ -1,0 +1,77 @@
+{% extends "base.html" %} {% block content %} {% block navbar %}
+<nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+    <div class="container">
+        <a class="navbar-brand js-scroll-trigger" href="#page-top">Heart Med</a>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      Menu
+      <i class="fa fa-bars"></i>
+    </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link js-scroll-trigger" href="{{ url_for('profile', id=current_user.id) }}">Profile</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link js-scroll-trigger" href="#features">Assigned Patients</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link js-scroll-trigger" href="#contact">Messages</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link js-scroll-trigger" href="{{ url_for('logout') }}">Log out</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+{% endblock %}
+<header class="masthead">
+    <div class="container h-100">
+        <div class="row h-100">
+            <div class="col-lg-7 my-auto">
+                <div class="header-content mx-auto">
+                    <h1 class="mb-5">Hello Doctor {{ doc.username }}, You have been assigned !</h1>
+                    <!-- <a href="#download" class="btn btn-outline btn-xl js-scroll-trigger">Start Now for Free!</a> -->
+                </div>
+            </div>
+            <div class="col-lg-5 my-auto">
+                <article>
+                    <thead>
+                        All Patients
+                    </thead>
+                    <table>
+                        <tr>
+                            <th>Username </th>
+                            <th>email</th>
+                            <th>Role</th>
+                            <th></th>
+                        </tr>
+                        {% for user in users %}
+                        <tr>
+                            <td>{{ user.username }}</td>
+                            <td>{{ user.email }}</td>
+                            <td>{{ user.role }}</td>
+                        </tr>
+                        {% endfor %}
+                    </table>
+                </article>
+            </div>
+        </div>
+    </div>
+</header>
+
+<section class="download bg-primary text-center" id="download">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 mx-auto">
+                <h2 class="section-heading">Discover what all the buzz is about!</h2>
+                <p>You will be assigned a doctor to assist you once we have seen that you are at risk of having a heart disease</p>
+                <div class="badges">
+                    <a class="badge-link" href="#"><img src="img/google-play-badge.svg" alt=""></a>
+                    <a class="badge-link" href="#"><img src="img/app-store-badge.svg" alt=""></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

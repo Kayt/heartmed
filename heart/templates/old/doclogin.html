@@ -1,0 +1,56 @@
+{% from "form_macros.html" import render_field %} {% extends "base.html" %} {% block content %}
+
+
+<header class="masthead">
+    <div class="container h-100">
+        <div class="row h-100">
+            <div class="col-lg-7 my-auto">
+                <div class="header-content mx-auto">
+                    <form action="" method="post" name="doclogin">
+                        {{ form.hidden_tag() }}
+                        <h1>Doctor Login Form</h1>
+                        <div>
+                            {{ render_field(form.username, class="form-control", placeholder="Username") }}
+                        </div>
+                        <div>
+                            {{ render_field(form.password, class="form-control", placeholder="password") }}
+                        </div>
+                        <div>
+                            {{ render_field(form.remember_me, class="form-control") }} Remember Me
+                        </div>
+                        <div>
+                            <button type="submit" class="btn btn-default submit">Log in</button>
+                        </div>
+
+                        <div class="clearfix"></div>
+
+                        <div class="separator">
+                            <p class="change_link">Not a Doctor?
+                                <a href="{{ url_for('login') }}" class="to_register"> Proceed to Patient login </a>
+                            </p>
+
+                            <div class="clearfix"></div>
+                            <br />
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="col-lg-5 my-auto">
+                <div class="device-container">
+                    <div class="device-mockup iphone6_plus portrait white">
+                        <div class="device">
+                            <div class="screen">
+                                <!-- Demo image for screen mockup, you can put an image here, some HTML, an animation, video, or anything else! -->
+                                <img src="img/demo-screen-1.jpg" class="img-fluid" alt="">
+                            </div>
+                            <div class="button">
+                                <!-- You can hook the "home button" to some JavaScript events or just remove it -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+{% endblock %}

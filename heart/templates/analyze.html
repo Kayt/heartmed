@@ -1,0 +1,152 @@
+{% extends 'base.html' %}
+
+{% from "form_macros.html" import render_field %}
+
+{% block title %}
+Self Diagnosis - HeartApp
+{% endblock %}
+
+{% block style %}{% endblock %}
+
+{% block content %}
+<div class="page-content">
+
+		<div class="page-header">
+			<h1>
+				Self Diagnosis 
+				<small>
+					<i class="ace-icon fa fa-angle-double-right"></i>
+					
+				</small>
+			</h1>
+		</div><!-- /.page-header -->
+
+		<div class="row">
+			<div class="col-xs-12">
+				<!-- PAGE CONTENT BEGINS -->
+				<form action="" method="post" enctype="multipart/form-data" name="analyze" class="form-horizontal" role="form">
+					{{ form.hidden_tag() }}
+					<div class="form-group">
+						<label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Age</label>
+
+						<div class="col-sm-3">
+							{{ render_field(form.age, class="form-control", size=10) }}
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Gender </label>
+
+						<div class="col-sm-3">
+							{{ render_field(form.sex, class="form-control") }}
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Chest Pain Type </label>
+
+						<div class="col-sm-3">
+							{{ render_field(form.chestpain, class="form-control") }}
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Blood Pressure </label>
+
+						<div class="col-sm-3">
+							{{ render_field(form.bloodpressure, class="form-control") }}
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Cholesterol </label>
+
+						<div class="col-sm-3">
+							{{ render_field(form.cholesterol, class="form-control") }}
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Blood Sugar </label>
+
+						<div class="col-sm-3">
+							{{ render_field(form.bloodsugar, class="form-control") }}
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Electrocardiographic Result </label>
+
+						<div class="col-sm-3">
+							{{ render_field(form.electro, class="form-control") }}
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Heart Rate </label>
+
+						<div class="col-sm-3">
+							{{ render_field(form.heartrate, class="form-control") }}
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Induced Angina </label>
+
+						<div class="col-sm-3">
+							{{ render_field(form.angina, class="form-control") }}
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Old Peak </label>
+
+						<div class="col-sm-3">
+							{{ render_field(form.peak, class="form-control") }}
+						</div>
+					</div>
+					
+					<div class="form-group">
+						<label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Slope Exercise </label>
+
+						<div class="col-sm-3">
+							{{ render_field(form.slope, class="form-control") }}
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Number of Major Vessels </label>
+
+						<div class="col-sm-3">
+							{{ render_field(form.vessel, class="form-control") }}
+						</div>
+					</div>
+
+					<div class="form-group">
+							<label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Thal </label>
+	
+							<div class="col-sm-3">
+								{{ render_field(form.thal, class="form-control") }}
+							</div>
+						</div>
+
+					<div class="clearfix form-actions">
+						<div class="col-md-offset-3 col-md-9">
+							<button class="btn btn-info" type="submit">
+								<i class="ace-icon fa fa-check bigger-110"></i>
+								Submit
+							</button>
+
+							
+						</div>
+					</div>
+				</form>
+			</div><!-- /.col -->
+		</div><!-- /.row -->
+	</div><!-- /.page-content -->
+{% endblock %}
+
+{% block scripts %}{% endblock %}
+
+{% block javascripts %}{% endblock %}
+

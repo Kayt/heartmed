@@ -1,0 +1,33 @@
+{% extends "base.html" %} {% block content %}
+<header class="masthead">
+    <div class="container h-100">
+        <div class="row h-100">
+            <div class="col-lg-7 my-auto">
+                <div class="header-content mx-auto">
+                    <h1 class="mb-5">Hello {{ current_user.username }}, Welcome to the Heart Med App!</h1>
+                    <!-- <a href="#download" class="btn btn-outline btn-xl js-scroll-trigger">Start Now for Free!</a> -->
+                </div>
+            </div>
+            <div class="col-lg-5 my-auto">
+
+            </div>
+        </div>
+    </div>
+</header>
+
+<section class="download bg-primary text-center" id="download">
+    <div class="container">
+        <div class="row">
+            <!--<div class="col-md-8 mx-auto">-->
+            <!--<h2 class="section-heading">Discover what all the buzz is about!</h2>-->
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/qczRzcqxoIo" frameborder="0" allowfullscreen></iframe>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/GRfYqLCRy4g" frameborder="0" allowfullscreen></iframe>
+            <div class="badges">
+                <a class="badge-link" href="#"><img src="img/google-play-badge.svg" alt=""></a>
+                <a class="badge-link" href="#"><img src="img/app-store-badge.svg" alt=""></a>
+            </div>
+            <!--</div>-->
+        </div>
+    </div>
+</section>
+{% endblock %}
